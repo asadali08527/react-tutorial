@@ -1,6 +1,9 @@
-const h1 = React.createElement("h1",{id: "heading"}, "Welcome to React, through React Library!")
-const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(h1)
+import React from "react";
+import ReactDOM from "react-dom";
+
+const h1 = React.createElement("h1", {id: "heading"}, "Welcome to React, through React Library!");
+const root = ReactDOM.createRoot(document.getElementById("root"));
+root.render(h1);
 
 /*
 <div id="parent">
@@ -17,10 +20,10 @@ const div = React.createElement("div",{id: "parent"},
             React.createElement("h2",{}, "Sibling h2 under nested div")
         ]
     )
-)
-console.log(div)
+);
+console.log(div);
 //const some_other_div = ReactDOM.createRoot(document.getElementById("some-other-div"))
-root.render(div)
+root.render(div);
 
 
 /*
@@ -50,7 +53,7 @@ const main_parent = React.createElement("div",{id: "main_parent"},
             ]
         )
     ]
-)
-console.log(main_parent)
+);
+console.log(main_parent);
 //const root = ReactDOM.createRoot(document.getElementById("root"))
-root.render(main_parent)
+root.render(main_parent);
