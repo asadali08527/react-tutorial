@@ -1,0 +1,37 @@
+{
+  "name": "02_fundamentals",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcle build index.html",
+    "test": "jest",
+    "watch-test": "jest --watch"
+
+  },
+  "author": "Asad Ali",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@babel/core": "^7.26.0",
+    "@babel/preset-env": "^7.26.0",
+    "@babel/preset-react": "^7.26.3",
+    "@testing-library/jest-dom": "^6.6.3",
+    "@testing-library/react": "^16.1.0",
+    "babel-jest": "^29.7.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "parcel": "^2.13.3",
+    "process": "^0.11.10",
+    "tailwindcss": "^3.4.17"
+  },
+  "dependencies": {
+    "@reduxjs/toolkit": "^2.5.0",
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0",
+    "react-redux": "^9.2.0",
+    "react-router-dom": "^6.0.0"
+  },
+  "browserslist": [
+    "last 10 versions"
+  ]
+}
