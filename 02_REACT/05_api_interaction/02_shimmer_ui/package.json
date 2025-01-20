@@ -1,0 +1,23 @@
+{
+  "name": "02_fundamentals",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "parcel index.html",
+    "build": "parcle build index.html",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Asad Ali",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "parcel": "^2.13.3",
+    "process": "^0.11.10"
+  },
+  "dependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "browserslist":[
+    "last 10 versions"
+  ]
+}
