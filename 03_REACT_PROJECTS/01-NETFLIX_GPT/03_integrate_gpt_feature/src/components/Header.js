@@ -5,8 +5,12 @@ import { useSelector, useDispatch } from 'react-redux';
 import { setUser, removeUser } from '../slices/userSlice';
 import { NETFLIX_LOGO, DEFAULT_PROFILE_ICON } from '../constants/urlConstants';
 import {auth} from '../utils/firebase';
+import { toggleGptSearch } from '../slices/gptSlice';
+import { SUPPORTED_LANGUAGES } from '../constants/languageConstants';
+import { changeLanguage } from '../slices/languageSlice';
 
 const Header = () => {
+  const showGptSearch = useSelector((store)=>store.gpt?.showGptSearch);
   const user = useSelector((store) => store.user); // Get user state from Redux
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -50,6 +54,13 @@ const Header = () => {
       });
   };
 
+  const handleGPTClick = ()=>{
+    dispatch(toggleGptSearch());
+  }
+  const handleLanguageSelect = (e) => {
+    console.log(e.target.value);
+    dispatch(changeLanguage(e.target.value));
+  }
   const handleMouseEnter = () => setIsHovered(true);
   const handleMouseLeave = () => setIsHovered(false);
 
@@ -57,6 +68,7 @@ const Header = () => {
     <div className="absolute w-full px-8 py-2 bg-gradient-to-b from-black z-10 flex justify-between">
       <img className="w-44" src={NETFLIX_LOGO} alt="Logo" />
       {user?.isSignedIn && (
+        <div>
         <div
           className="relative flex p-2"
           onMouseEnter={handleMouseEnter}
@@ -75,6 +87,19 @@ const Header = () => {
               Sign Out
             </button>
           )}
+        </div>
+        <button
+              className="absolute top-10 right-24 font-bold text-white bg-red-400 px-4 py-2 rounded-lg cursor-pointer"
+              onClick={handleGPTClick}
+            >
+              {showGptSearch?"Home Page":"GPT Search"}
+            </button>
+            {showGptSearch && (<select className='absolute top-10 right-60 font-bold text-white bg-gray-900 px-4 py-2 rounded-lg cursor-pointer' onChange={handleLanguageSelect}>
+              {SUPPORTED_LANGUAGES.map((langauge)=>
+              <option key={langauge.identifier} value={langauge.identifier}>{langauge.name}</option>
+              
+            )};
+            </select>)}
         </div>
       )}
     </div>
