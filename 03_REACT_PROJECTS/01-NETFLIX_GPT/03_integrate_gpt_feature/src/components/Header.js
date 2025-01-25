@@ -8,6 +8,8 @@ import {auth} from '../utils/firebase';
 import { toggleGptSearch } from '../slices/gptSlice';
 import { SUPPORTED_LANGUAGES } from '../constants/languageConstants';
 import { changeLanguage } from '../slices/languageSlice';
+import { ClearSearchMovieNames } from '../slices/movieSlice';
+import { clearSearchMovieResults } from '../slices/movieSlice';
 
 const Header = () => {
   const showGptSearch = useSelector((store)=>store.gpt?.showGptSearch);
@@ -17,6 +19,7 @@ const Header = () => {
   const [isHovered, setIsHovered] = useState(false);
 
   useEffect(() => {
+    
     const unsubscribe = onAuthStateChanged(auth, (userAuth) => {
       if (userAuth ) {
         // User is signed in
@@ -46,6 +49,8 @@ const Header = () => {
     signOut(auth)
       .then(() => {
         dispatch(removeUser());
+        dispatch(clearSearchMovieResults());
+        dispatch(ClearSearchMovieNames()); 
         navigate("/");
       })
       .catch((error) => {

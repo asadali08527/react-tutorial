@@ -1,7 +1,6 @@
 import React from 'react'
 import MovieList from './MovieList'
 import {useSelector} from "react-redux";
-import usePopularMovies from "../hooks/usePopularMovies";
 const SecondaryContainer = () => {
   const moviesList = useSelector((store)=>store.movies);
   return (
